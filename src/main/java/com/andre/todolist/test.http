@@ -1,0 +1,26 @@
+### Criar uma nova tarefa
+POST http://localhost:8080/todos
+Content-Type: application/json
+
+{
+  "descricao": "Testando com IntelliJ HTTP Client",
+  "status": false
+}
+
+### Listar todas as tarefas
+GET http://localhost:8080/todos
+
+### Buscar apenas a tarefa 1
+GET http://localhost:8080/todos/1
+
+### Deletar uma tarefa
+DELETE http://localhost:8080/todos/1
+
+### Atualizar uma tarefa
+PUT http://localhost:8080/todos/1
+Content-Type: application/json
+
+{
+  "descricao": "Atualizando uma tarefa",
+  "status": false
+}
