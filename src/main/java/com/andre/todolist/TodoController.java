@@ -11,10 +11,13 @@ import java.util.List;
 public class TodoController {
 
     private final TarefaRepository tarefaRepository;
+    private final TarefaService tarefaService;
 
-    public TodoController(TarefaRepository tarefaRepository) {
+    public TodoController(TarefaRepository tarefaRepository, TarefaService tarefaService) {
         this.tarefaRepository = tarefaRepository;
+        this.tarefaService = tarefaService;
     }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Tarefa> buscar(@PathVariable Long id) {
@@ -25,13 +28,10 @@ public class TodoController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(@PathVariable Long id) {
-        if(tarefaRepository.existsById(id)) {
-            tarefaRepository.deleteById(id);
-            return ResponseEntity.noContent().build();
-        }
-        else
-            return ResponseEntity.notFound().build();
+        tarefaService.deletar(id);
+        return ResponseEntity.noContent().build();
     }
+
 
     @PutMapping("/{id}")
     public ResponseEntity<Tarefa> atualizar(@PathVariable Long id,@RequestBody Tarefa tarefa) {
