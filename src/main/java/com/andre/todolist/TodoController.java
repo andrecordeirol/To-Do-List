@@ -35,13 +35,8 @@ public class TodoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Tarefa> atualizar(@PathVariable Long id,@RequestBody Tarefa tarefa) {
-        return tarefaRepository.findById(id).map(tarefaExistente -> {
-                tarefaExistente.setDescricao(tarefa.getDescricao());
-                tarefaExistente.setStatus(tarefa.isStatus());
-                Tarefa tarefaSalva = tarefaRepository.save(tarefaExistente);
-                return ResponseEntity.ok(tarefaSalva);
-            })
-            .orElse(ResponseEntity.notFound().build());
+        Tarefa tarefaAtualizada = tarefaService.atualizar(id, tarefa);
+        return ResponseEntity.ok(tarefaAtualizada);
     }
 
     @GetMapping()
