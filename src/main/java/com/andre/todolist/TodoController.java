@@ -48,4 +48,10 @@ public class TodoController {
 public Tarefa criar (@RequestBody Tarefa tarefa) {
         return tarefaRepository.save(tarefa);
     }
+
+    @PutMapping("/{id}/concluir")
+    public ResponseEntity<Tarefa> concluir(@PathVariable Long id){
+        Tarefa tarefaAtualizada = tarefaService.marcarComoConcluido(id);
+        return ResponseEntity.ok(tarefaAtualizada);
+    }
 }

@@ -3,7 +3,7 @@ POST http://localhost:8080/todos
 Content-Type: application/json
 
 {
-  "descricao": "Testando com IntelliJ HTTP Client",
+  "descricao": "Testando com IntelliJ HTTP Client 2",
   "status": false
 }
 

@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-do-List</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>Minhas tarefas</h1>
+<div class="container"> <h1>Minhas Tarefas </h1>
 
-<ul id="lista-tarefas"></ul>
+    <div class="input-group">
+        <textarea id="nova-tarefa-input" placeholder="O que precisa ser feito?"></textarea>
+        <button id="btn-adicionar">Adicionar</button>
+    </div>
+
+    <ul id="lista-tarefas">
+    </ul>
+</div>
 
 <script src="./script.js"></script>
-
 </body>
 </html>

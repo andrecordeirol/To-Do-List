@@ -30,4 +30,11 @@ public class TarefaService {
                 }
         ).orElseThrow(() -> new TarefaNotFoundException(id));
     }
+
+    public Tarefa marcarComoConcluido(Long id){
+        return tarefaRepository.findById(id).map(tarefa -> {
+            tarefa.setStatus(true);
+            return tarefaRepository.save(tarefa);
+        }).orElseThrow(() -> new TarefaNotFoundException(id));
+    }
 }
